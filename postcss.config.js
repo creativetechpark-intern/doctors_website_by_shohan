@@ -1,15 +1,20 @@
-const purgecss = require('@fullhuman/postcss-purgecss')({
-  content: ['./public/**/*.html', './src/**/*.vue'], // Include Vue files in the purge
-  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || []
+import tailwindcss from 'tailwindcss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import purgecssModule from '@fullhuman/postcss-purgecss';
+
+// Configure purgecss separately
+const purgecss = purgecssModule({
+  content: ['./public/**/*.html', './src/**/*.vue'],
+  defaultExtractor: content => content.match(/[A-Za-z0-9-_:/]+/g) || [],
 });
 
-module.exports = {
+export default {
   plugins: [
-    require('tailwindcss'),
-    require('autoprefixer'),
+    tailwindcss,
+    autoprefixer,
     ...process.env.NODE_ENV === 'production'
-      ? [purgecss, require('cssnano')] // Use cssnano for minification in production
-      : []
+      ? [purgecss, cssnano]
+      : [],
   ],
 };
-
