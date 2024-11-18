@@ -2,6 +2,8 @@
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
 import home_page from "@/components/home_page.vue";
+import { ref } from "vue";
+
 </script>
 
 <template>
@@ -16,3 +18,5 @@ import home_page from "@/components/home_page.vue";
     <Footer/>
   </div>
 </template>
+
+
