@@ -1,5 +1,7 @@
 <script setup>
 import { ref } from 'vue';
+import { RouterLink,useRouter } from 'vue-router';
+
 
 // Define reactive states for the menu and dropdown
 const isMenuOpen = ref(false);
@@ -42,7 +44,7 @@ const toggleDropdown = () => {
 
         <!-- Menu -->
         <ul :class="{'block': isMenuOpen, 'hidden': !isMenuOpen}" class="md:flex md:space-x-8 md:items-center hidden">
-          <li><a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Home</a></li>
+          <li><RouterLink to="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Home</RouterLink></li>
 
           <!-- Dropdown using Tailwind CSS -->
           <li class="relative" @click="toggleDropdown">
@@ -55,14 +57,17 @@ const toggleDropdown = () => {
 
             <!-- Dropdown Content -->
             <ul v-show="isDropdownOpen" class="absolute left-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-10">
-              <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Consultation</a></li>
-              <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 ">Treatment</a></li>
-              <li><a href="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Skincare Advice</a></li>
+              <li><RouterLink to="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Clinical Dermatology</RouterLink></li>
+              <li><RouterLink to="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 ">Aesthetic Dermatology</RouterLink></li>
+              <li><RouterLink to="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Dermatologic Surgery</RouterLink></li>
+              <li><RouterLink to="#" class="block px-4 py-2 text-gray-700 hover:bg-gray-100 rounded-md">Cosmetic Dermatology</RouterLink></li>
+
             </ul>
           </li>
           
-          <li><a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Pricing</a></li>
-          <li><a href="#" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Contact</a></li>
+          <li><RouterLink to="/" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Shop</RouterLink></li>
+          <li><RouterLink to="/about" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Biography</RouterLink></li>
+          <li><RouterLink to="/contact" class="block py-2 px-4 text-gray-700 hover:bg-gray-200 rounded-md">Contact</RouterLink></li>
         </ul>
       </nav>
     </header>

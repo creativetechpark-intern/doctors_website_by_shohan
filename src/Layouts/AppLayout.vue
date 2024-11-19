@@ -1,7 +1,9 @@
 <script setup>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
-import home_page from "@/components/home_page.vue";
+
+
+
 import { ref } from "vue";
 
 </script>
@@ -12,8 +14,7 @@ import { ref } from "vue";
     <Header/>
     <main>
       <slot />
-      <home_page/>
-      
+    
     </main>
     <Footer/>
   </div>
