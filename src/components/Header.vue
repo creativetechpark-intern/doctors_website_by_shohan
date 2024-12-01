@@ -1,27 +1,39 @@
+
 <script>
+import { ref } from 'vue';
+
 export default {
-  data() {
-    return {
-      isDesktopDropdownOpen: false,
-      isMobileMenuOpen: false,
-      isMobileDropdownOpen: false,
+  setup() {
+    // States for dropdown and mobile menu
+    const isDesktopDropdownOpen = ref(false);
+    const isMobileMenuOpen = ref(false);
+    const isMobileDropdownOpen = ref(false);
+
+    // Methods to toggle menu states
+    const toggleDesktopDropdown = () => {
+      isDesktopDropdownOpen.value = !isDesktopDropdownOpen.value;
     };
-  },
-  methods: {
-    toggleDesktopDropdown() {
-      this.isDesktopDropdownOpen = !this.isDesktopDropdownOpen;
-    },
-    toggleMobileMenu() {
-      this.isMobileMenuOpen = !this.isMobileMenuOpen;
-    },
-    toggleMobileDropdown() {
-      this.isMobileDropdownOpen = !this.isMobileDropdownOpen;
-    },
-  },
+
+    const toggleMobileMenu = () => {
+      isMobileMenuOpen.value = !isMobileMenuOpen.value;
+    };
+
+    const toggleMobileDropdown = () => {
+      isMobileDropdownOpen.value = !isMobileDropdownOpen.value;
+    };
+
+    // Return values to template
+    return {
+      isDesktopDropdownOpen,
+      isMobileMenuOpen,
+      isMobileDropdownOpen,
+      toggleDesktopDropdown,
+      toggleMobileMenu,
+      toggleMobileDropdown
+    };
+  }
 };
 </script>
-
-
 
 
 
@@ -112,6 +124,3 @@ export default {
     </nav>
   </header>
 </template>
-
-
-
